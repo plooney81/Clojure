@@ -1,6 +1,6 @@
 # clojure-noob
 
-FIXME: description
+Repository dedicated for my learning of Clojure
 
 ## Installation
 
