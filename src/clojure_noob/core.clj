@@ -57,4 +57,19 @@
   (def failed-protragonise-names
     ["Larry Potter" "Doreen the Explorer" "The Incredible Bulk"])
   failed-protragonise-names ; --> "Larry Potter" "Doreen the Explorer" "The Incredible Bulk"
+
+  ;? Function error-message which accepts a single argument, severity, it
+  ;? uses that to determine which string to return 
+  (defn error-message
+  [severity]
+  (str "OH GOD! IT'S A DISASTER! WE'RE "
+       (if (= severity :mild)
+         "MILDLY INCONVENIENCED!"
+         (if (= severity :severe)
+           "TOTALLY SKREWED!"
+           "GONNA NEED A SKREWDRIVER!!"))))
+  
+  (println (error-message :mild)) ;--> OH GOD! IT'S A DISASTER! WE'RE MILDLY INCONVIENCED
+  (println (error-message :severe))
+  (println (error-message :blah))
   )
