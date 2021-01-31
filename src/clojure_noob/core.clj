@@ -61,14 +61,14 @@
   ;? Function error-message which accepts a single argument, severity, it
   ;? uses that to determine which string to return 
   (defn error-message
-  [severity]
-  (str "OH GOD! IT'S A DISASTER! WE'RE "
-       (if (= severity :mild)
-         "MILDLY INCONVENIENCED!"
-         (if (= severity :severe)
-           "TOTALLY SKREWED!"
-           "GONNA NEED A SKREWDRIVER!!"))))
-  
+    [severity]
+    (str "OH GOD! IT'S A DISASTER! WE'RE "
+         (if (= severity :mild)
+           "MILDLY INCONVENIENCED!"
+           (if (= severity :severe)
+             "TOTALLY SKREWED!"
+             "GONNA NEED A SKREWDRIVER!!"))))
+
   (println (error-message :mild)) ;--> OH GOD! IT'S A DISASTER! WE'RE MILDLY INCONVIENCED
   (println (error-message :severe))
   (println (error-message :blah))
@@ -95,5 +95,25 @@
   ;* It only allows concatentation via the str function
   (def name "Chewbacca")
   (str "\"Uggllglglglglglglglll\" - " name)
+  
+  ;! Maps
+  ;? Similar to dictionaries or hasher in other langauges
+  ;? Way of associating some value with some other value
+  ;* Two Kinds of maps in Clojure...Hash maps and sorted maps
+  {} ;--> Just an empty map
 
+  ;* :first-name and :last-name are keywords
+  {:first-name "Charlie"
+   :last-name "McFishwich"}
+
+  (def my-hash-map
+    (hash-map :a 1 :b 2))
+
+  (get my-hash-map :b) ;--> 2
+
+  (def my-weird-map
+    {:a 0 :b {:c "ho hum"}})
+
+  (get my-weird-map :a) ;--> 0
+  (get my-weird-map :b) ;--> {:c "ho hum"}
   )
