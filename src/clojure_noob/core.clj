@@ -85,4 +85,15 @@
   1.2 ;float --> 1.2
   1/5 ;ratio --> 1/5
 
+  ;? Strings
+  ;* Notice that Clojure only allwos double quotes to delineate strings
+  "Lord Voldemort"
+  "\"He who must not be name\""
+  "\"Great cow of Moscow!\" - Hermes Conrad"
+
+  ;* Also notice that Clojure doesn't have string interpolation
+  ;* It only allows concatentation via the str function
+  (def name "Chewbacca")
+  (str "\"Uggllglglglglglglglll\" - " name)
+
   )
