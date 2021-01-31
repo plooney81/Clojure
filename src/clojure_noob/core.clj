@@ -72,4 +72,17 @@
   (println (error-message :mild)) ;--> OH GOD! IT'S A DISASTER! WE'RE MILDLY INCONVIENCED
   (println (error-message :severe))
   (println (error-message :blah))
+
+
+  ;! Data Structures
+  ;? Clojure Data structure properties:
+  ;!!!!!!! They are immutable
+  ;* They are readable
+  ;* Thye support proper value equality semantics in their implementation of equals
+  ;* They provide good hash values
+  ;todo numbers
+  93 ;integer --> 93
+  1.2 ;float --> 1.2
+  1/5 ;ratio --> 1/5
+
   )
