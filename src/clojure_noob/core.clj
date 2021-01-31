@@ -42,13 +42,19 @@
   (= 1 1) ;true
   (= nil nil) ;true
   (= 1 1 2) ;false
-  
+
   ;?boolean expressions
-  (or (= 0 1)(= "yes" "no")) ;false
-  (or (= 1 1)(= "yes" "no")) ;true
+  (or (= 0 1) (= "yes" "no")) ;false
+  (or (= 1 1) (= "yes" "no")) ;true
 
   (and :free_wifi :hot_coffee) ;returns the last truthy value
   ; ^ will return hot_coffee
-  
-  
-)
+
+  ;? Naming values with def
+  ;todo Binding the name failed-protagonist-names to a vector containing three strings
+  ;todo Notice the difference between "binding" and "assigning"
+  ;* Treat def as if it's defining constants
+  (def failed-protragonise-names
+    ["Larry Potter" "Doreen the Explorer" "The Incredible Bulk"])
+  failed-protragonise-names ; --> "Larry Potter" "Doreen the Explorer" "The Incredible Bulk"
+  )
