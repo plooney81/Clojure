@@ -95,7 +95,7 @@
   ;* It only allows concatentation via the str function
   (def name "Chewbacca")
   (str "\"Uggllglglglglglglglll\" - " name)
-  
+
   ;! Maps
   ;? Similar to dictionaries or hasher in other langauges
   ;? Way of associating some value with some other value
@@ -116,4 +116,19 @@
 
   (get my-weird-map :a) ;--> 0
   (get my-weird-map :b) ;--> {:c "ho hum"}
+
+  ;? The get-in function lets you look up values in nested maps:
+  (get-in my-weird-map [:b :c]) ;--> "ho hum"
+
+  ;? Another way to look up a value in a map is to treat the map 
+  ;? like a function with the key as its arguemnt: 
+  ({:name "The human coffeepot"} :name) ;--> "The human coffeepot"
+
+  ;! Keywords
+  ;? Clojure keywords are  primarily used as keys in maps
+  ;? Here are some examples
+  :a
+  :rumplestiltsken
+  :34
+  :_?
   )
