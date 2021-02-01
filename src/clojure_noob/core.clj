@@ -131,4 +131,38 @@
   :rumplestiltsken
   :34
   :_?
+
+  ;? Keywords can be used as functions that look up the corresponding value in a data structure
+  ;? Here we look up :a in a map
+  (:a {:a 1 :b 2 :c 3}) ;--> 1
+  ;? Default value
+  (:d {:a 1 :b 2 :c 3} "Nothing here") ;--> "Nothing here"
+  
+  ;! Vectors
+  ;? Similar to an array...0 index collection
+  (get [3 2 1] 0) ;--> 3
+
+  (def my-awesome-vector
+    [3 2 1])
+
+  (get my-awesome-vector 0); --> 3
+
+  (get ["a" {:name "Pugsley Winterbottom"} "c"] 1) ;--> {:name "Pugsley Winterbottom"}
+
+  ;* Vector Elements can be any type
+  (def my-weird-vector
+    ["a" {:name "Pugsley Winterbottom"} "c"])
+
+  (get-in my-weird-vector [1 :name])
+  "Pugsley Winterbottom"
+
+  ;* Create vectors with the vector function
+  (vector "Hello" "Mr" "Blah")
+  ["Hello" "Mr" "Blah"]
+
+  ;* conj function to add additional elements to the vector
+  ;* NOTE: Elements added to the end of a vector
+  (conj my-weird-vector 4)
+  ["a" {:name "Pugsley Winterbottom"} "c" 4]
+
   )
