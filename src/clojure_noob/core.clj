@@ -137,7 +137,7 @@
   (:a {:a 1 :b 2 :c 3}) ;--> 1
   ;? Default value
   (:d {:a 1 :b 2 :c 3} "Nothing here") ;--> "Nothing here"
-  
+
   ;! Vectors
   ;? Similar to an array...0 index collection
   (get [3 2 1] 0) ;--> 3
@@ -167,6 +167,36 @@
   (println my-weird-vector);--> ["a" {:name "Pugsley Winterbottom"} "c"]
 
   (def my-weird-vector
-    (conj my-weird-vector 4)) 
+    (conj my-weird-vector 4))
   (println my-weird-vector) ;--> ["a" {:name "Pugsley Winterbottom"} "c" 4]
+
+  ;! Lists
+  ;* Similar to vectors...but can't retrieve list elements with get
+  ;* To create one...specify with a single quote at the beginning
+  '(1 2 3 4 5) ;--> (1 2 3 4 5)
+
+  (def my-awesome-list
+    '("Pete" "Is" 3))
+
+  ;* Nth function to retrieve an element from a list
+  (nth my-awesome-list 1); --> "Is"
+
+  (nth my-awesome-list 4 "YOYOYO") ;--> "YOYOYO"
+
+  (nth my-awesome-list 4) ;--> nil 
+
+  ;* List values can have any type, can create lists with the list function
+  (def my-new-list
+    (list 1 "two" {3 4}))
+
+  my-new-list ;--> (1 "two" {3 4})
+
+  ;* Elements are added to the beginngin of a list
+  (conj my-awesome-list 4); --> (4 "Pete" "Is" 3)
+  ;? when should I use a list vs a vector?
+  ;* LIST:
+    ;* When you need to easily add at the beginning of the sequence
+    ;* When writing a macro
+  ;* VECTOR:
+    ;* Everything else
   )
