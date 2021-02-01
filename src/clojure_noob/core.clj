@@ -164,5 +164,9 @@
   ;* NOTE: Elements added to the end of a vector
   (conj my-weird-vector 4)
   ["a" {:name "Pugsley Winterbottom"} "c" 4]
+  (println my-weird-vector);--> ["a" {:name "Pugsley Winterbottom"} "c"]
 
+  (def my-weird-vector
+    (conj my-weird-vector 4)) 
+  (println my-weird-vector) ;--> ["a" {:name "Pugsley Winterbottom"} "c" 4]
   )
