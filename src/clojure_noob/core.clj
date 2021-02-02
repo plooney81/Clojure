@@ -162,8 +162,7 @@
 
   ;* conj function to add additional elements to the vector
   ;* NOTE: Elements added to the end of a vector
-  (conj my-weird-vector 4)
-  ["a" {:name "Pugsley Winterbottom"} "c" 4]
+  (conj my-weird-vector 4);--> ["a" {:name "Pugsley Winterbottom"} "c" 4]
   (println my-weird-vector);--> ["a" {:name "Pugsley Winterbottom"} "c"]
 
   (def my-weird-vector
@@ -181,9 +180,9 @@
   ;* Nth function to retrieve an element from a list
   (nth my-awesome-list 1); --> "Is"
 
-  (nth my-awesome-list 4 "YOYOYO") ;--> "YOYOYO"
+  ; (nth my-awesome-list 4 "YOYOYO") ;--> "YOYOYO"
 
-  (nth my-awesome-list 4) ;--> nil 
+  ; (nth my-awesome-list 4) ;--> nil 
 
   ;* List values can have any type, can create lists with the list function
   (def my-new-list
@@ -199,4 +198,44 @@
     ;* When writing a macro
   ;* VECTOR:
     ;* Everything else
+  ;    
+
+  ;! Sets
+  ;* collections of unique values
+  ;* Clojure has two kinds: HASH and SORTED
+  #{"contrived examples" 20 :icicle}
+
+  ;* Can als use 'hash-set' function to create a set
+  (hash-set 1 1 1 1 1 2)
+  #{1 2}
+
+  (def my-awesome-set
+    #{1 2})
+
+
+  ;* Notice how multiple instances of a value become one unique value in the set
+  (conj my-awesome-set 2) ;* I already have a 2 in the set...so it doesn't actually add anything
+  #{1 2}
+
+  ;* We can also create sets from existing vectors and lists by using the set function
+  (set [3 3 4 4])
+  #{4 3}
+
+  (def another-awesome-set
+    (set ["Blarg" "Malarg"]))
+
+
+  (println another-awesome-set) ;--> #{"Blarg" "Malarg"}
+
+  ;* Check for set membership using the contains? function
+  (contains? another-awesome-set "Blarg");--> true
+
+  (contains? another-awesome-set "blarg"); --> false
+
+  (contains? #{nil} nil); --> true
+
+  ;* get and keyword lookup will return the value if it exists, or nil if it doesn't
+  (:a #{:a :b}); --> :a
+
+  (get #{:a :b} :a); --> :a
   )
