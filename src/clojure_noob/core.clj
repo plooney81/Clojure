@@ -258,7 +258,7 @@
 
   ((first [+ 0]) 1 2 3) ;* return value of first is the first element in a sequence
   ;--> 6
-  
+
   (rest [10 20 30 40]) ;* rest function returns all the items of a sequence except the first
   ;--> [20 30 40]
 
@@ -266,6 +266,11 @@
   ;? Inc function increments a number by 1
   (inc 1.1); --> 2.1
   (map inc [0 1 2 3]); --> (1 2 3 4)
+
+  ;? Filter function returns a sequence of items on the collection where the operator returns logically true
+  (filter even? (range 10)); --> (0 2 4 6 8)
+  (filter #(> % 5) '(3 4 5 6 7))
+
 
   ;* Clojure evaluates all function arguments recursively before passing them to a function
   ; (+ (inc 199) (/ 100 (- 7 2)))
@@ -307,5 +312,4 @@
   (defn two-arity
     "Function with 2-arity"
     [x y]
-    (str "I take parameters " x y))
-  )
+    (str "I take parameters " x y)))
