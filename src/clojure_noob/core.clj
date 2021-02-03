@@ -238,4 +238,39 @@
   (:a #{:a :b}); --> :a
 
   (get #{:a :b} :a); --> :a
+  
+  ;! More on Functions
+  (or + -)
+  #function[clojure.core/+]
+
+  ;* B/c + is a truthy value it returns the addition function which is then used as the operator in another expression
+  ((or + -) 1 2 3)
+  ;--> 6
+
+  (and (= 1 1))
+  ;--> true
+
+  (and (= 1 1) +) ;* return value of and is the first falsey value or the LAST truthy value
+  #function[clojure.core/+]
+
+  ((and (= 1 1) +) 1 2 3)
+  ;--> 6
+
+  ((first [+ 0]) 1 2 3) ;* return value of first is the first element in a sequence
+  ;--> 6
+
+  ;? Map function creats a list by applying a function to each member of a collection
+  ;? Inc function increments a number by 1
+  (inc 1.1); --> 2.1
+  (map inc [0 1 2 3]); --> (1 2 3 4)
+
+  ;* Clojure evaluates all function arguments recursively before passing them to a function
+  ; (+ (inc 199) (/ 100 (- 7 2)))
+  ; (+ 200 (/ 100 (- 7 2))) ; evaluated "(inc 199)"
+  ; (+ 200 (/ 100 5)) ; evaluated (- 7 2)
+  ; (+ 200 20) ; evaluated (/ 100 5)
+  ; 220 ; final evaluation
+  (+ (inc 199) (/ 100 (- 7 2)))
+  220
+  
   )
