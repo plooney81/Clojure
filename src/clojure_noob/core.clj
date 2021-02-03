@@ -258,6 +258,9 @@
 
   ((first [+ 0]) 1 2 3) ;* return value of first is the first element in a sequence
   ;--> 6
+  
+  (rest [10 20 30 40]) ;* rest function returns all the items of a sequence except the first
+  ;--> [20 30 40]
 
   ;? Map function creats a list by applying a function to each member of a collection
   ;? Inc function increments a number by 1
