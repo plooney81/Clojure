@@ -238,10 +238,10 @@
   (:a #{:a :b}); --> :a
 
   (get #{:a :b} :a); --> :a
-  
+
   ;! More on Functions
   (or + -)
-  #function[clojure.core/+]
+  ; #function[clojure.core/+]
 
   ;* B/c + is a truthy value it returns the addition function which is then used as the operator in another expression
   ((or + -) 1 2 3)
@@ -251,7 +251,7 @@
   ;--> true
 
   (and (= 1 1) +) ;* return value of and is the first falsey value or the LAST truthy value
-  #function[clojure.core/+]
+  ; #function[clojure.core/+]
 
   ((and (= 1 1) +) 1 2 3)
   ;--> 6
@@ -272,5 +272,37 @@
   ; 220 ; final evaluation
   (+ (inc 199) (/ 100 (- 7 2)))
   220
-  
+  ;! Function Calls, Macro Calls, and Special Forms
+  ;* Two other types of expressions are macro calls and specials forms
+  ;* If expressions and definitions are both special forms
+  ;? What makes specials forms 'special' --> They don't always eval all their operands
+
+
+  ;! Defining functions
+  ;* Five main parts
+  ; defn, function name, docstring describing the function (optional), params in brackets, function body)
+  (defn my-amazing-function
+    "Returns an absolutely amazing string"
+    [name]
+    (str "Hey " name " you are amazing"))
+
+  (my-amazing-function "Clojure"); --> "Hey Clojure you are amazing"
+
+  ; (doc my-amazing-function)
+
+  ;! Parameters and Arity
+  ; function with 0 parameters is a 0 arity function, 1 parameter is 1-arity and so on
+
+  (defn zero-arity
+    "Function with 0-arity"
+    []
+    "I take nothing")
+  (defn one-arity
+    "Function with 1-arity"
+    [x]
+    (str "I take one parameter " x))
+  (defn two-arity
+    "Function with 2-arity"
+    [x y]
+    (str "I take parameters " x y))
   )
