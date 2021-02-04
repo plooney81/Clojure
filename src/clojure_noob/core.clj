@@ -312,4 +312,14 @@
   (defn two-arity
     "Function with 2-arity"
     [x y]
-    (str "I take parameters " x y)))
+    (str "I take parameters " x y))
+
+  ;! Let keyword
+  ;* Another special form in Clojure
+  ;* Provides a way to create lexical bindings of data structures to symbols
+
+  (let [x 1] (+ 2 x)) ;--> 3
+  (let [myVar 1] (/ 5 myVar)) ; --> 5 
+  
+  (let [firstVar "Blarg" secondVar "Malarg"] (str firstVar " " secondVar)) ; --> "Blarg Malarg"
+  )
