@@ -322,4 +322,8 @@
   (let [myVar 1] (/ 5 myVar)) ; --> 5 
   
   (let [firstVar "Blarg" secondVar "Malarg"] (str firstVar " " secondVar)) ; --> "Blarg Malarg"
+  
+  ;! Reduce
+  ;* Takes a two argument function and an optional starting point
+  ;* 
   )
