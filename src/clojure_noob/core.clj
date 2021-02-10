@@ -331,4 +331,8 @@
     (reduce + [1 2 3 4]))
   (println my-reduce-var) ;--> 10
   (reduce + 1 [2 3]); --> 6
+
+  ;! dec function
+  ;* Returns a number one less than the number.
+  (println (dec 2)) ;--> 1
   )
