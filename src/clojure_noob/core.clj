@@ -324,6 +324,12 @@
   (let [firstVar "Blarg" secondVar "Malarg"] (str firstVar " " secondVar)) ; --> "Blarg Malarg"
   
   ;! Reduce
-  ;* Takes a two argument function and an optional starting point
-  ;* 
+  ;* Takes a two argument function and an optional starting point val
+  ;* If val is not supplied, returns the result of applying f to the first 2 items
+  (println (reduce + [1 2 3 4 5]))
+  (def my-reduce-var
+    (reduce + [1 2 3 4]))
+  (println my-reduce-var) ;--> 10
+  (reduce + [1 2 3 4 5]) ;--> 15
+  (reduce + 1 [2 3]); --> 6
   )
