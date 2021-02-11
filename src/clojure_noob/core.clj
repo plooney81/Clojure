@@ -362,7 +362,7 @@
 
   (some-stuff "Blarg" "Television" "X-box" "PS-5")
   "Hello, Blarg here is some free stuff: Television, X-box, PS-5"
-  
+
   ;! Let keyword
   ;* Another special form in Clojure
   ;* Provides a way to create lexical bindings of data structures to symbols
@@ -384,4 +384,7 @@
   ;! dec function
   ;* Returns a number one less than the number.
   (println (dec 2)) ;--> 1
+
+  ;! Destructuring
+  ;? more sophiscated way of defining parameters
   )
