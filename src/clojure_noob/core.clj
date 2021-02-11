@@ -313,16 +313,65 @@
     "Function with 2-arity"
     [x y]
     (str "I take parameters " x y))
+  ;? Arity overloading
+  ;* Defining a function so a different function body will run depending on the arity
+  ;* One way of providing default values for arguments
+  (defn x-chop
+  ;3-arity argument body
+    ([name chop-type]
+     (str "I " chop-type " chop " name " ! Take that!"))
+    ([name]
+     (x-chop name "karate")))
+  (x-chop "Pete");--> "I karate chop Pete ! Take that!"
 
+  (x-chop "Pete" "ninja"); --> "I ninja chop Pete ! Take that!" 
+  ;? Also allows you to define a function that does completely 
+  ;? unrelated things depending on how many arguments are given
+
+  (defn weird-arity
+    "Function that returns a sentence if 0 arguments given, or increases a number otherwise"
+    ([]
+     "Hello...says this wierd arity function")
+    ([x]
+     (inc x)))
+  (weird-arity) ;-> "Hello...says this wierd arity function"
+
+  (weird-arity 1) ;-> 2
+
+  ;? Variable arity with the rest parameter
+  ;* can define variable arity functions by including a rest parameter
+  ;* puts the rest of the arguments in a list with the given name...using the &
+  (defn ill-tell-you-what
+    [name]
+    (str "Let me tell you what " name " , I won't stand for this!!"))
+
+  (defn mr-rodgers
+    [& names] ;* Where the magic happens
+    (map ill-tell-you-what names))
+
+  (mr-rodgers "Blarg" "Chewy" "Aaron")
+  ("Let me tell you what Blarg , I won't stand for this!!"
+   "Let me tell you what Chewy , I won't stand for this!!"
+   "Let me tell you what Aaron , I won't stand for this!!")
+
+  ;? Can mix rest parameters with normal parameters, but the rest params have to come last
+  (defn some-stuff
+    [name & stuff]
+    (str "Hello, " name " here is some free stuff: "
+         (clojure.string/join ", " stuff)))
+
+  (some-stuff "Blarg" "Television" "X-box" "PS-5")
+  "Hello, Blarg here is some free stuff: Television, X-box, PS-5"
+  
   ;! Let keyword
   ;* Another special form in Clojure
   ;* Provides a way to create lexical bindings of data structures to symbols
 
   (let [x 1] (+ 2 x)) ;--> 3
   (let [myVar 1] (/ 5 myVar)) ; --> 5 
-  
+
   (let [firstVar "Blarg" secondVar "Malarg"] (str firstVar " " secondVar)) ; --> "Blarg Malarg"
-  
+
   ;! Reduce
   ;* Takes a two argument function and an optional starting point val
   ;* If val is not supplied, returns the result of applying f to the first 2 items
