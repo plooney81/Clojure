@@ -350,9 +350,9 @@
     (map ill-tell-you-what names))
 
   (mr-rodgers "Blarg" "Chewy" "Aaron")
-  ("Let me tell you what Blarg , I won't stand for this!!"
-   "Let me tell you what Chewy , I won't stand for this!!"
-   "Let me tell you what Aaron , I won't stand for this!!")
+  ;; ("Let me tell you what Blarg , I won't stand for this!!"
+  ;;  "Let me tell you what Chewy , I won't stand for this!!"
+  ;;  "Let me tell you what Aaron , I won't stand for this!!")
 
   ;? Can mix rest parameters with normal parameters, but the rest params have to come last
   (defn some-stuff
@@ -387,4 +387,5 @@
 
   ;! Destructuring
   ;? more sophiscated way of defining parameters
+  
   )
