@@ -269,7 +269,7 @@
 
   ;? Filter function returns a sequence of items on the collection where the operator returns logically true
   (filter even? (range 10)); --> (0 2 4 6 8)
-  (filter #(> % 5) '(3 4 5 6 7))
+  (filter #(> % 5) '(3 4 5 6 7)); --> (6 7)
 
 
   ;* Clojure evaluates all function arguments recursively before passing them to a function
@@ -387,5 +387,8 @@
 
   ;! Destructuring
   ;? more sophiscated way of defining parameters
-  
-  )
+  ;* Concisely lets you bind names to values within a collection
+  (defn my-first
+    [[first-thing]]
+    first-thing)
+)
