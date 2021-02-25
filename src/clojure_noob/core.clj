@@ -391,4 +391,9 @@
   (defn my-first
     [[first-thing]]
     first-thing)
-)
+
+  ;! Apply function
+  ;? used to send a sequence of numbers to a function as if they were sent as arguments
+  (def numbers [1 2 3 4 5])
+  (apply + numbers) ;=> 15
+  )
