@@ -411,7 +411,7 @@
       (.concat this other)))
 
   (cat "House " " of Leaves"); --> "House of Leaves"
-  
+
   ;* Extending to java.util.list
   (extend-type java.util.List
     Concatenatable
@@ -419,4 +419,43 @@
       (concat this other)))
 
   (cat [1 2 3] [4 5 6]) ;--> (1 2 3 4 5 6)
-  )
+
+  ;! Encapsulation - Bundling data and methods that work on that data within one unit
+  ;* So how do we accomplish this without classes?
+  ;* Closures -> Great way to group functions with their supporting data
+  ;? In the following code, these supporting functions for the lookup function are encapsulated at the level of the namespace
+  ;? joy.chess through the use of the defn- macro --> create name-space private functions.
+  (ns joy.chess)
+
+  (defn initial-board []
+    [\r \n \b \q \k \b \n \r
+     \p \p \p \p \p \p \p \p
+     \- \- \- \- \- \- \- \-
+     \- \- \- \- \- \- \- \-
+     \- \- \- \- \- \- \- \-
+     \- \- \- \- \- \- \- \-
+     \P \P \P \P \P \P \P \P
+     \R \N \B \Q \K \B \N \R])
+
+  (def ^:dynamic *file-key* \a)
+
+  (def ^:dynamic *rank-key* \0)
+
+  (defn- file-component [file]
+    (- (int file) (int *file-key*)))
+
+  (defn- rank-component [rank]
+    (->> (int *rank-key*)
+         (- (int rank))
+         (- 8)
+         (* 8)))
+
+  (defn- index [file rank]
+    (+ (file-component file) (rank-component rank)))
+
+  (defn lookup [board pos]
+    (let [[file rank] pos]
+      (board (index file rank))))
+
+  (lookup (initial-board) "a1")
+  \R)
