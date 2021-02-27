@@ -396,4 +396,27 @@
   ;? used to send a sequence of numbers to a function as if they were sent as arguments
   (def numbers [1 2 3 4 5])
   (apply + numbers) ;=> 15
+
+  ;! Polymorphism Section
+  ;* defprotocol --> creates a protocol
+  ;?  Protocol --> named set of named methods and their signatures
+  (defprotocol Concatenatable
+    (cat [this other]))
+
+  ;* Here we extend the new Concatenatable protocol onto the string class
+  ;* we also define the specific implementation - which is a function body that concatenates the argument other onto the string this
+  (extend-type String
+    Concatenatable
+    (cat [this other]
+      (.concat this other)))
+
+  (cat "House " " of Leaves"); --> "House of Leaves"
+  
+  ;* Extending to java.util.list
+  (extend-type java.util.List
+    Concatenatable
+    (cat [this other]
+      (concat this other)))
+
+  (cat [1 2 3] [4 5 6]) ;--> (1 2 3 4 5 6)
   )
